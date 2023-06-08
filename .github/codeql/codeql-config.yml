@@ -1,0 +1,4 @@
+name: "Vert.X CodeQL config"
+queries:
+    - name: Run Vert.X queries
+      uses: ./vertx-codeql-queries

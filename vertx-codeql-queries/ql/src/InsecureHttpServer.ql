@@ -1,3 +1,12 @@
+/**
+ * @name Use of insecure HTTP server
+ * @description The Vert.x HTTP server established insecure connections which are not using SSL/TLS.
+ * @kind problem
+ * @problem.severity high
+ * @id java/vertx/insecure-http-server
+ * @tags security java/vertx
+ */
+
 import java
 import semmle.code.java.StringFormat
 
@@ -28,8 +37,8 @@ class HttpOptionsExpr extends Expr {
 from VertxCreateHttpServerMethodAccess call, Expr expr, StringFormatMethod format
 where
   not call.getEnclosingCallable().getDeclaringType() instanceof Vertx and
-  not call.getLocation().getFile().getRelativePath().matches("%/src/test/%") and
+  not call.getLocation().getFile().getRelativePath().matches("%src/test/%") and
   call.getNumArgument() = 0
 select
   call,
-  "Insecure HTTP server instantiation detected."
+  "Insecure HTTP server which allows unencrypted HTTP connections"

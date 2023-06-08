@@ -7,6 +7,8 @@ dependencies:
     version: 0.0.13
   codeql/suite-helpers:
     version: 0.4.1
+  codeql/tutorial:
+    version: 0.0.10
   codeql/typetracking:
     version: 0.0.10
   codeql/util:

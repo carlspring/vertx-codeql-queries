@@ -1,3 +1,12 @@
+/**
+ * @name Insecure CORS with wildcard origin
+ * @description The CORS handler is configured to allow requests from any hosts.
+ * @kind problem
+ * @problem.severity critical
+ * @id java/vertx/insecure-cors-wildcard
+ * @tags security java/vertx
+ */
+
 import java
 import semmle.code.java.StringFormat
 
@@ -13,11 +22,10 @@ class VertxCorsHandlerAddOriginMethodAccess extends MethodAccess {
       this.getMethod() = m and
       m.getName().matches("addOrigin") and
       m.getDeclaringType() instanceof VertxCorsHandler and
-      this.getArgument(0).(StringLiteral).getValue().matches("http://%")
+      this.getArgument(0).(StringLiteral).getValue() = "*"
     )
   }
 }
-
 
 from VertxCorsHandlerAddOriginMethodAccess call, Expr expr, StringFormatMethod format
 where
@@ -26,6 +34,4 @@ where
   call.getArgument(format.getFormatStringIndex()) = expr
 select
   call,
-  call.getEnclosingCallable(),
-  call.getEnclosingCallable().getDeclaringType(),
-  expr
+  "Insecure CORS configuration which allows wildcard origins."
