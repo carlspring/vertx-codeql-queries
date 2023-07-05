@@ -21,11 +21,9 @@ public class SecureCorsServer extends AbstractVerticle {
                                              // 1) Use HTTPS
                                              // 2) Use an explicitly defined origin
                                              .addOrigin("https://example.com")
-                                             // 3) Allow authentication
-                                             .allowAuthentication(true)
-                                             // 4) Define allowed headers
+                                             // 3) Define allowed headers
                                              .allowedHeader(HttpHeaders.CONTENT_TYPE.toString())
-                                             // 5) Define allowed methods
+                                             // 4) Define allowed methods
                                              .allowedMethod(HttpMethod.GET)
                                              .allowedMethod(HttpMethod.POST);
 
