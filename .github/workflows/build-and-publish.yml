@@ -89,6 +89,7 @@ jobs:
           ls -al
 
       - name: Get Version ID from the Versions List
+        if: ${{ steps.package.outputs.versionId != 'unknown' }}
         id: package
         run: |
           # For dev
@@ -127,7 +128,7 @@ jobs:
         run: echo "The selected Version ID is ${{ steps.package.outputs.versionId }}"
 
       - uses: actions/delete-package-versions@v4
-        if: ${{ steps.package.outputs.versionId != 'unknown' }}
+        if: ${{ steps.package.outputs.isSnapshot == 'true' }}
         with:
           token: ${{ secrets.CS_DEVOPS_BOT_TOKEN }}
 
