@@ -89,7 +89,7 @@ jobs:
           ls -al
 
       - name: Get Version ID from the Versions List
-        if: ${{ steps.package.outputs.versionId != 'unknown' }}
+        if: ${{ steps.package.outputs.isSnapshot != true }}
         id: package
         run: |
           # For dev
@@ -124,11 +124,11 @@ jobs:
           echo "versionId=${VERSION_ID}" >> $GITHUB_OUTPUT
 
       - name: Print Version ID
-        if: ${{ steps.package.outputs.versionId != 'unknown' }}
+        if: ${{ steps.package.outputs.isSnapshot == true }}
         run: echo "The selected Version ID is ${{ steps.package.outputs.versionId }}"
 
       - uses: actions/delete-package-versions@v4
-        if: ${{ steps.package.outputs.isSnapshot == 'true' }}
+        if: ${{ steps.package.outputs.isSnapshot == true }}
         with:
           token: ${{ secrets.CS_DEVOPS_BOT_TOKEN }}
 
@@ -162,7 +162,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd vertx-codeql-queries/ql/src
-          codeql pack publish --github-auth-stdin --allow-prerelease
+          codeql pack install
+          codeql pack publish --allow-prerelease
 
       - name: Post job report comment reaction
         uses: peter-evans/create-or-update-comment@v3

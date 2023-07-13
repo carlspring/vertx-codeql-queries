@@ -1,6 +1,6 @@
 ---
 name: carlspring/vertx-codeql-queries
-version: 1.0.0-alpha
+version: 1.0.0
 library: false
 warnOnImplicitThis: false
 extractor: java
