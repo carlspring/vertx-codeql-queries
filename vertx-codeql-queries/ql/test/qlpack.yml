@@ -3,6 +3,7 @@ groups: [java, test]
 dependencies:
     codeql/java-all: "*"
     codeql/java-queries: "*"
+    carlspring/vertx-codeql-queries: "*"
 extractor: java
 tests: .
 warnOnImplicitThis: true

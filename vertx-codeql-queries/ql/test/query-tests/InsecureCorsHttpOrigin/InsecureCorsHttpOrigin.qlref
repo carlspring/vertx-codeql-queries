@@ -1,1 +1,1 @@
-vertx-codeql-queries/InsecureCorsHttpOrigin.ql
+InsecureCorsHttpOrigin.ql

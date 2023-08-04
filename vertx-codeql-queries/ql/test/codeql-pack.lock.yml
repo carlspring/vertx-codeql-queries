@@ -1,6 +1,8 @@
 ---
 lockVersion: 1.0.0
 dependencies:
+  carlspring/vertx-codeql-queries:
+    version: 1.0.0
   codeql/java-all:
     version: 0.7.1
   codeql/java-queries:

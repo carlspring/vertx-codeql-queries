@@ -4,7 +4,7 @@ package io.netty.channel;
 
 import io.netty.channel.Channel;
 
-public interface ChannelFactory<T extends Channel> extends ChannelFactory<T>
+public interface ChannelFactory<T extends Channel>
 {
     T newChannel();
 }
