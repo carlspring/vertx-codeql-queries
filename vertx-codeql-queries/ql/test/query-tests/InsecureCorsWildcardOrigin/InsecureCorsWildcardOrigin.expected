@@ -1,0 +1,1 @@
+| InsecureCorsWildcardOrigin.java:23:35:24:60 | addOrigin(...) | Insecure CORS configuration which allows wildcard origins. |

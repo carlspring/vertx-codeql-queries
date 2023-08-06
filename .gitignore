@@ -1,6 +1,7 @@
 # CodeQL
 .codeql/
 **/ql/src/**/*.md
+**/*.testproj/
 
 ### IntelliJ IDEA ###
 out/

@@ -1,0 +1,1 @@
+| InsecureCorsHttpOrigin.java:21:35:23:77 | addOrigin(...) | Insecure CORS configuration which allows unencrypted HTTP connections. |
