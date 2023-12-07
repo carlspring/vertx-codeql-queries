@@ -34,7 +34,6 @@ The following tasks will need to be carried out:
     * [ ] Set up an `.expected` file and make sure the results only contain findings in the vulnerable class(es).
     * [ ] Set up an `options` file.
     * [ ] Set up a `pom.xml` file.
-* [ ] Update the documentation.
 
 # Useful Commands
 
