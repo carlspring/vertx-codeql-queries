@@ -3,6 +3,8 @@
  * @description The CORS handler is configured to allow requests from hosts that are not secured over HTTPS.
  * @kind problem
  * @problem.severity critical
+ * @precision high
+ * @security-severity 7.5
  * @id java/vertx/insecure-cors-http-origin
  * @tags security java/vertx
  */
