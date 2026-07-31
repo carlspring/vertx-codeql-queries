@@ -3,6 +3,8 @@
  * @description The Vert.x HTTP server establishes connections which are not secured using SSL/TLS.
  * @kind problem
  * @problem.severity high
+ * @precision high
+ * @security-severity 7.5
  * @id java/vertx/insecure-http-server
  * @tags security java/vertx
  */

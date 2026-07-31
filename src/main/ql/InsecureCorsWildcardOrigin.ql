@@ -3,6 +3,8 @@
  * @description The CORS handler is configured to allow requests from any hosts.
  * @kind problem
  * @problem.severity critical
+ * @precision high
+ * @security-severity 7.5
  * @id java/vertx/insecure-cors-wildcard
  * @tags security java/vertx
  */
