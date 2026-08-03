@@ -15,8 +15,8 @@ class Vertx extends RefType {
   }
 }
 
-class VertxCreateHttpServerMethodAccess extends MethodAccess {
-  VertxCreateHttpServerMethodAccess() {
+class VertxVertxMethodAccess extends MethodAccess {
+  VertxVertxMethodAccess() {
     exists(Method m |
       this.getMethod() = m and
       m.getName().matches("vertx") and
@@ -25,7 +25,7 @@ class VertxCreateHttpServerMethodAccess extends MethodAccess {
   }
 }
 
-from VertxCreateHttpServerMethodAccess call
+from VertxVertxMethodAccess call
 where
   not call.getEnclosingCallable().getDeclaringType() instanceof Vertx and
   not call.getLocation().getFile().getRelativePath().matches("%src/test/%") and
