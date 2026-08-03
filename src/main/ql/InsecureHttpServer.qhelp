@@ -19,7 +19,7 @@
     <example>
         <p>Instead of setting up a plain HTTP server that doesn't use SSL, such as this one:</p>
 
-        <sample src="InsecureHttpServer.java" />
+        <sample src="../java/org/carlspring/security/vertx/http/InsecureHttpServer.java" />
 
         <p>
             when creating an HTTP server, the <code>setSsl</code> method should be called on the
@@ -33,7 +33,7 @@
             it with SSL:
         </p>
 
-        <sample src="SecureHttpServer.java" />
+        <sample src="../java/org/carlspring/security/vertx/http/SecureHttpServer.java" />
     </example>
 
     <references>
