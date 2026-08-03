@@ -57,7 +57,7 @@ jobs:
           fi
           
           # The version of the CodeQL query pack
-          version=`cat vertx-codeql-queries/ql/src/qlpack.yml | yq e ".version" -`
+          version=`cat src/main/ql/qlpack.yml | yq e ".version" -`
           
           # Check if this is a snapshot version
           isSnapshot=false
@@ -84,7 +84,7 @@ jobs:
 
       - name: Generate query help files
         run: |
-          cd vertx-codeql-queries/ql/src
+          cd src/main/ql
           codeql generate query-help *.qhelp --format=markdown -o .
           ls -al
 
@@ -161,7 +161,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd vertx-codeql-queries/ql/src
+          cd src/main/ql
           codeql pack install
           codeql pack publish --allow-prerelease
 
