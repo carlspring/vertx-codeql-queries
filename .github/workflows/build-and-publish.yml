@@ -88,6 +88,15 @@ jobs:
           codeql generate query-help *.qhelp --format=markdown -o .
           ls -al
 
+      - name: Install test pack dependencies
+        run: |
+          cd src/test/ql/test
+          codeql pack install
+
+      - name: Run CodeQL tests
+        run: |
+          codeql test run src/test/ql/test/query-tests --search-path src/main/ql
+
       - name: Get Version ID from the Versions List
         if: ${{ steps.package.outputs.isSnapshot != true }}
         id: package
