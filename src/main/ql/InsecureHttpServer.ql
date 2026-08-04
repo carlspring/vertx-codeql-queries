@@ -2,7 +2,8 @@
  * @name Use of insecure HTTP server
  * @description The Vert.x HTTP server establishes connections which are not secured using SSL/TLS.
  * @kind problem
- * @problem.severity high
+ * @problem.severity warning
+ * @severity error
  * @precision high
  * @security-severity 7.5
  * @id java/vertx/insecure-http-server

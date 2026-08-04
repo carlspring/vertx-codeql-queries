@@ -3,6 +3,7 @@
  * @description The CORS handler is configured to allow requests from hosts that are not secured over HTTPS.
  * @kind problem
  * @problem.severity critical
+ * @severity error
  * @precision high
  * @security-severity 7.5
  * @id java/vertx/insecure-cors-http-origin
@@ -10,7 +11,6 @@
  */
 
 import java
-import semmle.code.java.StringFormat
 
 class VertxCorsHandler extends RefType {
   VertxCorsHandler() {
@@ -29,11 +29,10 @@ class VertxCorsHandlerAddOriginMethodAccess extends MethodAccess {
   }
 }
 
-from VertxCorsHandlerAddOriginMethodAccess call, Expr expr, StringFormatMethod format
+from VertxCorsHandlerAddOriginMethodAccess call
 where
   not call.getEnclosingCallable().getDeclaringType() instanceof VertxCorsHandler and
-  not call.getLocation().getFile().getRelativePath().matches("%/src/test/%") and
-  call.getArgument(format.getFormatStringIndex()) = expr
+  not call.getLocation().getFile().getRelativePath().matches("%/src/test/%")
 select
   call,
   "Insecure CORS configuration which allows unencrypted HTTP connections."
