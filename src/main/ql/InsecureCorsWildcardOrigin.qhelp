@@ -16,11 +16,11 @@
     <example>
         <p>Instead of adding a wildcard origin, such as in the example below:</p>
 
-        <sample src="InsecureCorsWildcardOrigin.java" />
+        <sample src="../java/org/carlspring/security/vertx/http/InsecureCorsWildcardOrigin.java" />
 
         <p>define the origins explicitly like this:</p>
 
-        <sample src="SecureCorsServer.java" />
+        <sample src="../java/org/carlspring/security/vertx/http/SecureCorsServer.java" />
     </example>
 
     <references>

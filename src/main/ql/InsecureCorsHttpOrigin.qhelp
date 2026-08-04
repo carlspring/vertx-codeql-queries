@@ -14,11 +14,11 @@
     <example>
         <p>Instead of an insecure HTTP connection to the origin, such as in the example below:</p>
 
-        <sample src="InsecureCorsHttpOrigin.java" />
+        <sample src="../java/org/carlspring/security/vertx/http/InsecureCorsHttpOrigin.java" />
 
         <p>set up SSL like this:</p>
 
-        <sample src="SecureCorsServer.java" />
+        <sample src="../java/org/carlspring/security/vertx/http/SecureCorsServer.java" />
     </example>
 
     <references>
