@@ -91,7 +91,7 @@ jobs:
       - name: Install test pack dependencies
         run: |
           cd src/test/ql/test
-          codeql pack install
+          codeql pack install --search-path ../../../../src/main/ql
 
       - name: Run CodeQL tests
         run: |
