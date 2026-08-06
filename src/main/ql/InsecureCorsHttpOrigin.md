@@ -111,9 +111,9 @@ public class SecureCorsServer extends AbstractVerticle {
         // Start the server
         vertx.createHttpServer(options)
              .requestHandler(router)
-             .listen(8080, ar -> {
+             .listen(8443, ar -> {
                  if (ar.succeeded()) {
-                     System.out.println("Server started on port 8080");
+                     System.out.println("Server started on port 8443");
                  } else {
                      System.err.println("Server failed to start: " + ar.cause());
                  }
