@@ -1,0 +1,45 @@
+<!DOCTYPE qhelp PUBLIC
+        "-//Semmle//qhelp//EN"
+        "qhelp.dtd">
+<qhelp>
+    <overview>
+        <p>
+            A <code>WebClient</code> created without a <code>WebClientOptions</code> that explicitly sets an idle
+            timeout may hold open connections indefinitely. This can lead to resource exhaustion, increased latency,
+            and denial-of-service conditions if remote servers stop responding without closing their connections.
+        </p>
+    </overview>
+
+    <recommendation>
+        <p>
+            Always create a <code>WebClientOptions</code> instance, call <code>setIdleTimeout</code> on it with
+            an appropriate timeout value, and pass the options when calling <code>WebClient.create</code>.
+        </p>
+    </recommendation>
+
+    <example>
+        <p>Instead of creating a WebClient without an idle timeout, such as in the example below:</p>
+
+        <sample src="java/org/carlspring/security/vertx/webclient/InsecureWebClient.java" />
+
+        <p>
+            create a <code>WebClientOptions</code> with an explicit <code>setIdleTimeout</code> and pass it to
+            <code>WebClient.create</code>, as shown here:
+        </p>
+
+        <sample src="java/org/carlspring/security/vertx/webclient/SecureWebClient.java" />
+    </example>
+
+    <references>
+        <li>
+            <a href="https://vertx.io/docs/vertx-web-client/java/">
+                Vert.x Web Client documentation
+            </a>
+        </li>
+        <li>
+            <a href="https://vertx.io/docs/apidocs/io/vertx/ext/web/client/WebClientOptions.html">
+                Vert.x WebClientOptions API
+            </a>
+        </li>
+    </references>
+</qhelp>
